@@ -11,6 +11,16 @@
   --naranja:#db6015;--amarillo:#f7be00;
   --azul:#244b5a;--rojo:#993921;
   --fondo:#f0f8ff;--blanco:#fff;
+  /* Nuevos colores por nivel */
+  --alerta-amarilla:#e8a000;
+  --alerta-amarilla-bg:#fffbea;
+  --alerta-amarilla-borde:#f7c948;
+  --alerta-naranja:#db6015;
+  --alerta-naranja-bg:#fff4ec;
+  --alerta-naranja-borde:#f09040;
+  --alerta-roja:#c0392b;
+  --alerta-roja-bg:#fff0ee;
+  --alerta-roja-borde:#e06050;
 }
 body{
   font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
@@ -32,7 +42,7 @@ body{
 /* ── TIPO ── */
 .tipo-grid{
   max-width:780px;margin:0 auto 18px;
-  display:grid;grid-template-columns:1fr 1fr;gap:14px;
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;
 }
 .tipo-card{
   background:white;border:2.5px solid #dce4ea;
@@ -40,14 +50,25 @@ body{
   cursor:pointer;text-align:center;
   transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,.06);
 }
-.tipo-card:hover{border-color:var(--naranja);transform:translateY(-2px);}
+.tipo-card:hover{transform:translateY(-2px);}
 .tipo-card .tc-icon{font-size:1.9em;margin-bottom:6px;}
 .tipo-card .tc-title{font-size:.87em;font-weight:800;color:var(--azul);margin-bottom:3px;}
 .tipo-card .tc-desc{font-size:.73em;color:#666;line-height:1.4;}
-.tipo-card.sel-media{border-color:var(--naranja);background:#fff8f0;}
-.tipo-card.sel-media .tc-title{color:var(--naranja);}
-.tipo-card.sel-riesgo{border-color:#c0392b;background:#fff5f3;}
-.tipo-card.sel-riesgo .tc-title{color:#c0392b;}
+
+/* Seleccionado amarillo */
+.tipo-card.sel-amarilla{border-color:var(--alerta-amarilla);background:var(--alerta-amarilla-bg);}
+.tipo-card.sel-amarilla .tc-title{color:var(--alerta-amarilla);}
+/* Seleccionado naranja */
+.tipo-card.sel-naranja{border-color:var(--alerta-naranja);background:var(--alerta-naranja-bg);}
+.tipo-card.sel-naranja .tc-title{color:var(--alerta-naranja);}
+/* Seleccionado rojo */
+.tipo-card.sel-roja{border-color:var(--alerta-roja);background:var(--alerta-roja-bg);}
+.tipo-card.sel-roja .tc-title{color:var(--alerta-roja);}
+
+/* Hover específico por tipo */
+#tc_amarilla:hover{border-color:var(--alerta-amarilla);}
+#tc_naranja:hover{border-color:var(--alerta-naranja);}
+#tc_roja:hover{border-color:var(--alerta-roja);}
 
 /* ── FORM CARD ── */
 .form-card{
@@ -56,6 +77,10 @@ body{
   box-shadow:0 4px 20px rgba(36,75,90,.09);
   border-top:5px solid var(--naranja);
 }
+.form-card.tipo-amarilla{border-top-color:var(--alerta-amarilla);}
+.form-card.tipo-naranja{border-top-color:var(--alerta-naranja);}
+.form-card.tipo-roja{border-top-color:var(--alerta-roja);}
+
 .sec{
   font-size:.7em;font-weight:800;text-transform:uppercase;
   letter-spacing:1.2px;color:var(--naranja);
@@ -162,6 +187,9 @@ textarea{resize:vertical;min-height:60px;}
   transition:transform .15s;
 }
 .btn-gen:hover{transform:translateY(-2px);}
+.btn-gen.tipo-amarilla{background:linear-gradient(135deg,#e8a000,#c07800);box-shadow:0 4px 12px rgba(232,160,0,.35);}
+.btn-gen.tipo-naranja{background:linear-gradient(135deg,#db6015,#b84e0f);box-shadow:0 4px 12px rgba(219,96,21,.35);}
+.btn-gen.tipo-roja{background:linear-gradient(135deg,#c0392b,#922b21);box-shadow:0 4px 12px rgba(192,57,43,.35);}
 
 /* ── PREVIEW / BOTONES ── */
 #contenedor-preview{max-width:780px;margin:0 auto;display:none;}
@@ -222,32 +250,39 @@ textarea{resize:vertical;min-height:60px;}
 .doc-titulo{font-size:1.4em;color:white;font-weight:900;line-height:1.1;}
 .doc-subtipo{font-size:.78em;color:var(--amarillo);font-weight:700;margin-top:4px;}
 .doc-badge{padding:8px 16px;border-radius:30px;font-size:.7em;font-weight:800;letter-spacing:.8px;text-transform:uppercase;white-space:nowrap;}
-.badge-media{background:var(--amarillo);color:var(--azul);}
-.badge-riesgo{background:#c0392b;color:white;}
+.badge-amarilla{background:#f7c948;color:#7a5000;}
+.badge-naranja{background:var(--naranja);color:white;}
+.badge-roja{background:#c0392b;color:white;}
 
 .doc-franja{
-  background:var(--naranja);padding:7px 40px;
+  padding:7px 40px;
   font-size:.73em;color:white;font-weight:600;
   display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;
 }
+.doc-franja.amarilla{background:#e8a000;}
+.doc-franja.naranja{background:var(--naranja);}
+.doc-franja.roja{background:#c0392b;}
 
 /* Banner */
 .doc-banner{padding:14px 40px;display:flex;align-items:center;gap:16px;}
-.doc-banner.media{background:#fff8ef;border-bottom:3px solid var(--naranja);}
-.doc-banner.riesgo{background:#fdf0ef;border-bottom:3px solid #c0392b;}
+.doc-banner.amarilla{background:#fffbea;border-bottom:3px solid #e8a000;}
+.doc-banner.naranja{background:#fff4ec;border-bottom:3px solid var(--naranja);}
+.doc-banner.roja{background:#fdf0ef;border-bottom:3px solid #c0392b;}
 .dbb-icon{font-size:1.9em;}
 .dbb-txt{flex:1;}
 .dbb-titulo{font-size:.84em;font-weight:800;margin-bottom:3px;}
-.dbb-titulo.media{color:var(--naranja);}
-.dbb-titulo.riesgo{color:#c0392b;}
+.dbb-titulo.amarilla{color:#c07800;}
+.dbb-titulo.naranja{color:var(--naranja);}
+.dbb-titulo.roja{color:#c0392b;}
 .dbb-desc{font-size:.77em;color:#444;line-height:1.55;}
 .dbb-badge-grande{
   padding:10px 18px;border-radius:12px;
   font-size:.78em;font-weight:800;text-align:center;
   white-space:nowrap;flex-shrink:0;
 }
-.dbb-badge-grande.media{background:var(--naranja);color:white;}
-.dbb-badge-grande.riesgo{background:#c0392b;color:white;}
+.dbb-badge-grande.amarilla{background:#f7c948;color:#7a5000;}
+.dbb-badge-grande.naranja{background:var(--naranja);color:white;}
+.dbb-badge-grande.roja{background:#c0392b;color:white;}
 
 /* Cuerpo */
 .doc-body{padding:20px 40px;}
@@ -293,12 +328,17 @@ textarea{resize:vertical;min-height:60px;}
 .td-punteo{text-align:center;font-weight:800;font-size:.9em;}
 .td-meta{text-align:center;font-size:.8em;color:#666;}
 .td-estado{text-align:center;}
-.tag-media{
+.tag-amarilla{
+  display:inline-block;padding:3px 10px;border-radius:20px;
+  background:#fff9db;color:#c07800;
+  font-size:.75em;font-weight:800;
+}
+.tag-naranja{
   display:inline-block;padding:3px 10px;border-radius:20px;
   background:#fff3e0;color:var(--naranja);
   font-size:.75em;font-weight:800;
 }
-.tag-riesgo{
+.tag-roja{
   display:inline-block;padding:3px 10px;border-radius:20px;
   background:#fdf0ef;color:#c0392b;
   font-size:.75em;font-weight:800;
@@ -306,16 +346,18 @@ textarea{resize:vertical;min-height:60px;}
 /* Barra mini en tabla doc */
 .doc-barra-bg{height:7px;background:#e8eef2;border-radius:10px;overflow:hidden;margin-top:4px;min-width:80px;}
 .doc-barra-fill{height:100%;border-radius:10px;}
-.doc-barra-fill.media{background:linear-gradient(90deg,var(--naranja),var(--amarillo));}
-.doc-barra-fill.riesgo{background:linear-gradient(90deg,#c0392b,#e74c3c);}
+.doc-barra-fill.amarilla{background:linear-gradient(90deg,#e8a000,#f7c948);}
+.doc-barra-fill.naranja{background:linear-gradient(90deg,var(--naranja),var(--amarillo));}
+.doc-barra-fill.roja{background:linear-gradient(90deg,#c0392b,#e74c3c);}
 
 /* Aviso bloque 2 */
 .doc-aviso-bloque{
-  background:linear-gradient(135deg,#fff8ef,#fff3e0);
-  border:1.5px solid var(--amarillo);border-left:5px solid var(--naranja);
   border-radius:10px;padding:12px 15px;margin-bottom:16px;
   font-size:.8em;line-height:1.6;color:#555;
 }
+.doc-aviso-bloque.amarilla{background:linear-gradient(135deg,#fffbea,#fff9db);border:1.5px solid #f7c948;border-left:5px solid #e8a000;}
+.doc-aviso-bloque.naranja{background:linear-gradient(135deg,#fff8ef,#fff3e0);border:1.5px solid var(--amarillo);border-left:5px solid var(--naranja);}
+.doc-aviso-bloque.roja{background:linear-gradient(135deg,#fdf5f4,#fdf0ef);border:1.5px solid #e08070;border-left:5px solid #c0392b;}
 .doc-aviso-bloque strong{color:var(--rojo);}
 
 /* Aviso plataforma */
@@ -361,13 +403,6 @@ textarea{resize:vertical;min-height:60px;}
 .firma-nombre{font-size:.82em;font-weight:800;color:var(--azul);}
 .firma-cargo{font-size:.72em;color:#666;margin-top:2px;}
 .firma-colegio{font-size:.68em;color:#888;margin-top:1px;font-style:italic;}
-.firma-recibido{
-  border:1.5px dashed #bbb;border-radius:10px;
-  padding:10px 13px;margin-top:20px;background:#fafafa;
-}
-.firma-recibido-label{font-size:.67em;text-transform:uppercase;letter-spacing:1px;color:#888;font-weight:700;margin-bottom:6px;}
-.firma-recibido-campo{height:34px;border-bottom:1.5px solid #ccc;margin-bottom:6px;}
-.firma-recibido-pie{display:flex;justify-content:space-between;font-size:.67em;color:#999;}
 
 /* Pie */
 .doc-foot{
@@ -377,8 +412,9 @@ textarea{resize:vertical;min-height:60px;}
 .foot-txt{font-size:.66em;color:rgba(255,255,255,.55);}
 .foot-conf{font-size:.61em;color:rgba(255,255,255,.4);letter-spacing:.9px;text-transform:uppercase;}
 
-@media(max-width:620px){
-  .tipo-grid,.r2,.r3{grid-template-columns:1fr;}
+@media(max-width:680px){
+  .tipo-grid{grid-template-columns:1fr;}
+  .r2,.r3{grid-template-columns:1fr;}
   .blq-row{flex-wrap:wrap;}
   .acciones-grid{grid-template-columns:1fr;}
 }
@@ -395,18 +431,27 @@ textarea{resize:vertical;min-height:60px;}
   </div>
 </div>
 
-<!-- TIPO -->
+<!-- TIPO DE ALERTA -->
 <div class="tipo-grid" id="tipoGrid">
-  <div class="tipo-card" id="tc_media" onclick="selTipo('media')">
+
+  <div class="tipo-card" id="tc_amarilla" onclick="selTipo('amarilla')">
     <div class="tc-icon">🟡</div>
-    <div class="tc-title">Alerta Media</div>
-    <div class="tc-desc">El estudiante ha iniciado el curso pero su punteo está por debajo de la meta del bloque. Requiere atención pronta.</div>
+    <div class="tc-title">Alerta Amarilla</div>
+    <div class="tc-desc">El estudiante ya inició el curso pero su punteo está por debajo de la meta del bloque. Requiere atención pronta para recuperar el ritmo.</div>
   </div>
-  <div class="tipo-card" id="tc_riesgo" onclick="selTipo('riesgo')">
+
+  <div class="tipo-card" id="tc_naranja" onclick="selTipo('naranja')">
+    <div class="tc-icon">🟠</div>
+    <div class="tc-title">Alerta Naranja</div>
+    <div class="tc-desc">El estudiante tiene 0 puntos en uno o más cursos. Corre riesgo de acumular lecciones pendientes y saturarse de trabajo.</div>
+  </div>
+
+  <div class="tipo-card" id="tc_roja" onclick="selTipo('roja')">
     <div class="tc-icon">🔴</div>
-    <div class="tc-title">Alerta de Riesgo</div>
-    <div class="tc-desc">El estudiante no ha ingresado al curso o su punteo es 0. Riesgo inmediato de no completar el ciclo.</div>
+    <div class="tc-title">Alerta Roja</div>
+    <div class="tc-desc">El estudiante está en riesgo de no completar el ciclo escolar. La acumulación es crítica y requiere acción inmediata.</div>
   </div>
+
 </div>
 
 <!-- FORMULARIO -->
@@ -461,9 +506,7 @@ textarea{resize:vertical;min-height:60px;}
         <th style="width:36px;"></th>
       </tr>
     </thead>
-    <tbody id="cursosBody">
-      <!-- filas dinámicas -->
-    </tbody>
+    <tbody id="cursosBody"></tbody>
   </table>
   <button class="btn-agregar" onclick="agregarCurso()" id="btnAgregar">+ Agregar otro curso</button>
 
@@ -486,7 +529,7 @@ textarea{resize:vertical;min-height:60px;}
     <textarea id="f_obs" placeholder="Detalles específicos del caso del estudiante..."></textarea>
   </div>
 
-  <button class="btn-gen" onclick="generarAlerta()">📄 Generar Alerta Académica</button>
+  <button class="btn-gen" id="btnGen" onclick="generarAlerta()">📄 Generar Alerta Académica</button>
 </div>
 
 <!-- PREVIEW -->
@@ -529,6 +572,52 @@ const ACCIONES = [
 let tipoSel='', bloqueSel=null, bloquePts=0, bloqueFecha='';
 let filasCount=0;
 
+/* ── Config visual por tipo de alerta ── */
+const TIPO_CFG = {
+  amarilla:{
+    label:'🟡 ALERTA AMARILLA',
+    badgeClass:'badge-amarilla',
+    titulo:'Alerta Amarilla – Avance Por Debajo de la Meta',
+    icon:'📉',
+    bannerIcono:'🟡',
+    tagClass:'tag-amarilla',
+    barClass:'amarilla',
+    getBannerTitulo:(n)=>`Punteo por debajo de la meta en ${n>1?n+' cursos':'1 curso'}`,
+    getBannerDesc:(bloquePts,bloqueSel,bloqueFecha)=>
+      `El estudiante ya inició los cursos indicados pero su punteo no ha alcanzado los <strong>${bloquePts} puntos</strong> requeridos para el Bloque ${bloqueSel} (cierre: <strong>${bloqueFecha}</strong>). Es necesario retomar el ritmo de estudio cuanto antes para no acumular más rezago.`,
+    getAvisoBloque:(bloqueSel,bloqueFecha)=>
+      `📌 <strong>El tiempo es importante:</strong> Aunque el estudiante ya ha avanzado, la diferencia respecto a la meta puede crecer si no se estudia con constancia. El Bloque ${bloqueSel} finaliza el <strong>${bloqueFecha}</strong>. Ponerse al corriente ahora evita mayores dificultades más adelante.`,
+  },
+  naranja:{
+    label:'🟠 ALERTA NARANJA',
+    badgeClass:'badge-naranja',
+    titulo:'Alerta Naranja – Punteo en Cero, Riesgo de Saturación',
+    icon:'⚠️',
+    bannerIcono:'🟠',
+    tagClass:'tag-naranja',
+    barClass:'naranja',
+    getBannerTitulo:(n)=>`Punteo en 0 en ${n>1?n+' cursos':'1 curso'}`,
+    getBannerDesc:(bloquePts,bloqueSel,bloqueFecha)=>
+      `El estudiante presenta <strong>0 puntos</strong> en los cursos indicados. Si no inicia actividad pronto, las lecciones se acumularán y el trabajo se volverá cada vez más difícil de recuperar. El Bloque ${bloqueSel} cierra el <strong>${bloqueFecha}</strong>.`,
+    getAvisoBloque:(bloqueSel,bloqueFecha)=>
+      `⚠️ <strong>Cuidado con la acumulación:</strong> Cada día sin ingresar suma más lecciones pendientes. Cuanto más tiempo pase sin actividad, más saturado quedará el estudiante. El Bloque ${bloqueSel} finaliza el <strong>${bloqueFecha}</strong>. Iniciar hoy reduce significativamente la carga.`,
+  },
+  roja:{
+    label:'🔴 ALERTA ROJA',
+    badgeClass:'badge-roja',
+    titulo:'Alerta Roja – Riesgo de No Completar el Ciclo Escolar',
+    icon:'🚫',
+    bannerIcono:'🔴',
+    tagClass:'tag-roja',
+    barClass:'roja',
+    getBannerTitulo:(n)=>`Riesgo crítico en ${n>1?n+' cursos':'1 curso'}`,
+    getBannerDesc:(bloquePts,bloqueSel,bloqueFecha)=>
+      `El estudiante presenta una <strong>acumulación crítica de lecciones pendientes</strong> que pone en riesgo su continuidad en el ciclo escolar. La fecha de cierre del Bloque ${bloqueSel} es el <strong>${bloqueFecha}</strong>. Sin acción inmediata y sostenida, no será posible completar los requisitos del año.`,
+    getAvisoBloque:(bloqueSel,bloqueFecha)=>
+      `🚨 <strong>Situación crítica:</strong> La acumulación de rezago ha llegado a un nivel que compromete la aprobación del ciclo escolar. Se requiere un plan de recuperación urgente coordinado con la Coordinación Académica. El Bloque ${bloqueSel} finaliza el <strong>${bloqueFecha}</strong>. Cada día sin acción reduce las posibilidades de recuperación.`,
+  }
+};
+
 /* Init */
 document.getElementById('f_fecha').value = new Date().toISOString().split('T')[0];
 
@@ -544,16 +633,26 @@ document.getElementById('f_fecha').value = new Date().toISOString().split('T')[0
     });
     grid.appendChild(lbl);
   });
-  // Agregar primera fila automáticamente
   agregarCurso();
 })();
 
 /* ── Tipo ── */
 function selTipo(t){
   tipoSel=t;
-  ['media','riesgo'].forEach(x=>{
-    document.getElementById('tc_'+x).className='tipo-card'+(x===t?' sel-'+t:'');
+  ['amarilla','naranja','roja'].forEach(x=>{
+    const card=document.getElementById('tc_'+x);
+    card.className='tipo-card'+(x===t?' sel-'+t:'');
   });
+  // Actualizar borde y botón del formulario
+  const fc=document.getElementById('formCard');
+  fc.className='form-card tipo-'+t;
+  const btn=document.getElementById('btnGen');
+  btn.className='btn-gen tipo-'+t;
+
+  const cfg=TIPO_CFG[t];
+  // Cambiar texto del botón según tipo
+  const emojis={amarilla:'🟡',naranja:'🟠',roja:'🔴'};
+  btn.textContent=`${emojis[t]} Generar ${cfg.label.replace(/^[^ ]+ /,'')}`;
 }
 
 /* ── Bloque ── */
@@ -563,7 +662,6 @@ function selBloque(el){
   bloqueSel  =parseInt(el.dataset.blq);
   bloquePts  =parseInt(el.dataset.pts);
   bloqueFecha=el.dataset.fecha;
-  // Actualizar barras de todas las filas
   document.querySelectorAll('.pts-input').forEach(inp=>actualizarBarra(inp));
 }
 
@@ -688,58 +786,37 @@ function generarAlerta(){
   const cursos=getCursosData();
   if(!cursos.length)return alert('⚠️ Agrega al menos un curso con alerta.');
 
-  // Acciones seleccionadas
   const accionesSel=Array.from(
     document.querySelectorAll('#accionesGrid input[type="checkbox"]:checked')
   ).map(c=>ACCIONES[parseInt(c.value)]);
 
-  // Config por tipo
-  const cfg={
-    media:{
-      badge:'🟡 ALERTA MEDIA',badgeClass:'badge-media',
-      titulo:'Alerta Media – Avance por Debajo de la Meta',
-      bannerTitulo:`Punteo por debajo de la meta en ${cursos.length>1?cursos.length+' cursos':'1 curso'}`,
-      bannerDesc:`El estudiante presenta un avance insuficiente en los cursos indicados. Su punteo está por debajo de los <strong>${bloquePts} puntos</strong> requeridos para el Bloque ${bloqueSel} (cierre: <strong>${bloqueFecha}</strong>). Es necesario retomar el ritmo de estudio de inmediato.`,
-      bannerClass:'media',icon:'📉',
-    },
-    riesgo:{
-      badge:'🔴 ALERTA DE RIESGO',badgeClass:'badge-riesgo',
-      titulo:'Alerta de Riesgo – Sin Actividad o Punteo en 0',
-      bannerTitulo:`Sin actividad registrada en ${cursos.length>1?cursos.length+' cursos':'1 curso'}`,
-      bannerDesc:`El estudiante no ha registrado actividad o tiene punteo en 0 en los cursos indicados. La fecha de cierre del Bloque ${bloqueSel} es el <strong>${bloqueFecha}</strong>. Sin acción inmediata, corre riesgo de no completar el ciclo escolar.`,
-      bannerClass:'riesgo',icon:'🚫',
-    }
-  }[tipoSel];
+  const cfg=TIPO_CFG[tipoSel];
 
+  // Filas de tabla en el documento
   const filasTablaHTML=cursos.map(c=>{
     const pct=c.noIngreso?0:Math.min(Math.round((c.pts/bloquePts)*100),100);
-    const esRiesgo=c.noIngreso||c.pts===0||tipoSel==='riesgo';
-    const tagClass=esRiesgo?'tag-riesgo':'tag-media';
-    const tagTxt  =esRiesgo?'🔴 Riesgo':'🟡 Media';
-    const barClass=esRiesgo?'riesgo':'media';
     const punteoCol = c.noIngreso
       ? `<span style="color:#c0392b;font-weight:800;font-size:.82em;">Sin ingresar</span>`
       : `${c.pts} pts.`;
     const avanceCol = c.noIngreso
       ? `<div style="font-size:.75em;color:#c0392b;font-weight:700;">No registrado</div>`
-      : `<div>${bloquePts} pts. · ${pct}%</div><div class="doc-barra-bg"><div class="doc-barra-fill ${barClass}" style="width:${pct}%"></div></div>`;
+      : `<div>${bloquePts} pts. · ${pct}%</div><div class="doc-barra-bg"><div class="doc-barra-fill ${cfg.barClass}" style="width:${pct}%"></div></div>`;
     return `
       <tr>
         <td class="td-curso-nombre">${c.nombre}</td>
         <td class="td-tipo"><span class="tipo-badge tipo-${c.tipo}">${c.tipo} lecc.</span></td>
         <td class="td-punteo">${punteoCol}</td>
         <td class="td-meta">${avanceCol}</td>
-        <td class="td-estado"><span class="${tagClass}">${tagTxt}</span></td>
+        <td class="td-estado"><span class="${cfg.tagClass}">${cfg.bannerIcono} ${cfg.label.replace('🟡 ','').replace('🟠 ','').replace('🔴 ','')}</span></td>
       </tr>`;
   }).join('');
 
-  // ¿Hay cursos de 24 lecciones?
+  // Nota de plataforma
   const tiene24=cursos.some(c=>c.tipo==='24');
   const tiene12=cursos.some(c=>c.tipo==='12');
   let notaPlat='';
   if(tiene24||tiene12){
-    notaPlat=`<div class="doc-aviso-plat">
-      <strong>ℹ️ Nota de la plataforma:</strong>`;
+    notaPlat=`<div class="doc-aviso-plat"><strong>ℹ️ Nota de la plataforma:</strong>`;
     if(tiene24) notaPlat+=` Para cursos de <strong>24 lecciones</strong>, completar la lección 17 requiere haber aprobado la <strong>Evaluación de Módulo 1 (lecciones 1–16)</strong>.`;
     if(tiene12) notaPlat+=` Para cursos de <strong>12 lecciones</strong>, la lección 9 requiere haber completado la <strong>Evaluación de Módulo 1 (lecciones 1–8)</strong>.`;
     notaPlat+=` Los módulos se cierran en semanas de exámenes de <strong>marzo y junio</strong>.</div>`;
@@ -749,12 +826,10 @@ function generarAlerta(){
     ?`<div class="doc-sec">Acciones y Recomendaciones para la Familia</div>
       <div class="doc-acciones">
         ${accionesSel.map((a,i)=>`<div class="doc-accion-item"><div class="ac-num">${i+1}</div><span>${a}</span></div>`).join('')}
-      </div>`
-    :'';
+      </div>`:'';
 
   const obsHTML=obs
-    ?`<div class="doc-sec">Observaciones Adicionales</div><div class="doc-obs">${obs}</div>`
-    :'';
+    ?`<div class="doc-sec">Observaciones Adicionales</div><div class="doc-obs">${obs}</div>`:'';
 
   const HTML=`
 <div class="doc">
@@ -765,21 +840,21 @@ function generarAlerta(){
       <div class="doc-titulo">${cfg.titulo} ${cfg.icon}</div>
       <div class="doc-subtipo">Ciclo Internacional · Bloque ${bloqueSel} · Cierre: ${bloqueFecha}</div>
     </div>
-    <div class="doc-badge ${cfg.badgeClass}">${cfg.badge}</div>
+    <div class="doc-badge ${cfg.badgeClass}">${cfg.label}</div>
   </div>
 
-  <div class="doc-franja">
+  <div class="doc-franja ${tipoSel}">
     <span>📅 Fecha de emisión: ${fecha}</span>
     <span>⏰ Cierre del Bloque ${bloqueSel}: ${bloqueFecha}</span>
   </div>
 
-  <div class="doc-banner ${cfg.bannerClass}">
-    <div class="dbb-icon">${cfg.icon}</div>
+  <div class="doc-banner ${tipoSel}">
+    <div class="dbb-icon">${cfg.bannerIcono}</div>
     <div class="dbb-txt">
-      <div class="dbb-titulo ${cfg.bannerClass}">${cfg.bannerTitulo}</div>
-      <div class="dbb-desc">${cfg.bannerDesc}</div>
+      <div class="dbb-titulo ${tipoSel}">${cfg.getBannerTitulo(cursos.length)}</div>
+      <div class="dbb-desc">${cfg.getBannerDesc(bloquePts,bloqueSel,bloqueFecha)}</div>
     </div>
-    <div class="dbb-badge-grande ${cfg.bannerClass}">
+    <div class="dbb-badge-grande ${tipoSel}">
       ${cursos.length} ${cursos.length===1?'curso':'cursos'}<br>
       <span style="font-size:.75em;font-weight:600;">con alerta</span>
     </div>
@@ -802,18 +877,14 @@ function generarAlerta(){
           <th style="width:90px;text-align:center;">Tipo</th>
           <th style="width:90px;text-align:center;">Punteo actual</th>
           <th style="width:140px;text-align:center;">Meta / Avance</th>
-          <th style="width:90px;text-align:center;">Estado</th>
+          <th style="width:110px;text-align:center;">Nivel de alerta</th>
         </tr>
       </thead>
       <tbody>${filasTablaHTML}</tbody>
     </table>
 
-    <div class="doc-aviso-bloque">
-      ⚠️ <strong>Es importante mantenerse al día:</strong> El Bloque 2 ya ha iniciado.
-      Si el estudiante aún no ha completado el Bloque 1, la acumulación de lecciones pendientes
-      puede hacerse cada vez más grande y difícil de recuperar. El Bloque ${bloqueSel} finaliza el
-      <strong>${bloqueFecha}</strong>. Completar las lecciones a tiempo permite avanzar sin
-      obstáculos y cumplir con los requisitos de las evaluaciones de módulo.
+    <div class="doc-aviso-bloque ${tipoSel}">
+      ${cfg.getAvisoBloque(bloqueSel,bloqueFecha)}
     </div>
 
     ${notaPlat}
@@ -822,11 +893,11 @@ function generarAlerta(){
 
     <div class="doc-sec">Firma</div>
     <div style="margin-top:4px;margin-bottom:16px;max-width:320px;">
-        <div class="firma-linea">
-          <div class="firma-nombre">SUSY RAMÍREZ</div>
-          <div class="firma-cargo">Coordinadora Académica</div>
-          <div class="firma-colegio">Colegio Escolaris · Plan Regular 2026</div>
-        </div>
+      <div class="firma-linea">
+        <div class="firma-nombre">SUSY RAMÍREZ</div>
+        <div class="firma-cargo">Coordinadora Académica</div>
+        <div class="firma-colegio">Colegio Escolaris · Plan Regular 2026</div>
+      </div>
     </div>
 
   </div>
@@ -860,11 +931,11 @@ async function descargarPNG(){
       useCORS:true,allowTaint:true,logging:false,
       width:900,windowWidth:900
     });
-    const nombre=(document.getElementById('f_nombre')?.value.trim()||'estudiante').replace(/\s+/g,'_');
+    const nombreEst=(document.getElementById('f_nombre')?.value.trim()||'estudiante').replace(/\s+/g,'_');
     const fecha=document.getElementById('f_fecha')?.value||new Date().toISOString().split('T')[0];
-    const tipo=tipoSel==='riesgo'?'Riesgo':'Media';
+    const tipoLabel=tipoSel==='amarilla'?'Amarilla':tipoSel==='naranja'?'Naranja':'Roja';
     const link=document.createElement('a');
-    link.download=`Alerta_${tipo}_B${bloqueSel}_Primaria_${nombre}_${fecha}.png`;
+    link.download=`Alerta_${tipoLabel}_B${bloqueSel}_Primaria_${nombreEst}_${fecha}.png`;
     link.href=canvas.toDataURL('image/png');
     link.click();
     btn.textContent='✅ ¡PNG descargado!';
