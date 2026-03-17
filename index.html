@@ -11,7 +11,6 @@
   --naranja:#db6015;--amarillo:#f7be00;
   --azul:#244b5a;--rojo:#993921;
   --fondo:#f0f8ff;--blanco:#fff;
-  /* Nuevos colores por nivel */
   --alerta-amarilla:#e8a000;
   --alerta-amarilla-bg:#fffbea;
   --alerta-amarilla-borde:#f7c948;
@@ -55,17 +54,13 @@ body{
 .tipo-card .tc-title{font-size:.87em;font-weight:800;color:var(--azul);margin-bottom:3px;}
 .tipo-card .tc-desc{font-size:.73em;color:#666;line-height:1.4;}
 
-/* Seleccionado amarillo */
 .tipo-card.sel-amarilla{border-color:var(--alerta-amarilla);background:var(--alerta-amarilla-bg);}
 .tipo-card.sel-amarilla .tc-title{color:var(--alerta-amarilla);}
-/* Seleccionado naranja */
 .tipo-card.sel-naranja{border-color:var(--alerta-naranja);background:var(--alerta-naranja-bg);}
 .tipo-card.sel-naranja .tc-title{color:var(--alerta-naranja);}
-/* Seleccionado rojo */
 .tipo-card.sel-roja{border-color:var(--alerta-roja);background:var(--alerta-roja-bg);}
 .tipo-card.sel-roja .tc-title{color:var(--alerta-roja);}
 
-/* Hover específico por tipo */
 #tc_amarilla:hover{border-color:var(--alerta-amarilla);}
 #tc_naranja:hover{border-color:var(--alerta-naranja);}
 #tc_roja:hover{border-color:var(--alerta-roja);}
@@ -263,7 +258,6 @@ textarea{resize:vertical;min-height:60px;}
 .doc-franja.naranja{background:var(--naranja);}
 .doc-franja.roja{background:#c0392b;}
 
-/* Banner */
 .doc-banner{padding:14px 40px;display:flex;align-items:center;gap:16px;}
 .doc-banner.amarilla{background:#fffbea;border-bottom:3px solid #e8a000;}
 .doc-banner.naranja{background:#fff4ec;border-bottom:3px solid var(--naranja);}
@@ -284,7 +278,6 @@ textarea{resize:vertical;min-height:60px;}
 .dbb-badge-grande.naranja{background:var(--naranja);color:white;}
 .dbb-badge-grande.roja{background:#c0392b;color:white;}
 
-/* Cuerpo */
 .doc-body{padding:20px 40px;}
 .doc-sec{
   font-size:.65em;font-weight:800;text-transform:uppercase;
@@ -293,7 +286,6 @@ textarea{resize:vertical;min-height:60px;}
   border-bottom:2px solid #f0d8c8;
 }
 
-/* Info estudiante */
 .info-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px;}
 .info-item{
   background:var(--fondo);border-radius:9px;
@@ -302,7 +294,6 @@ textarea{resize:vertical;min-height:60px;}
 .info-lbl{font-size:.61em;text-transform:uppercase;letter-spacing:.8px;color:#888;font-weight:700;margin-bottom:2px;}
 .info-val{font-size:.83em;font-weight:700;color:var(--azul);}
 
-/* TABLA DE CURSOS EN DOCUMENTO */
 .doc-cursos-tabla{
   width:100%;border-collapse:collapse;
   margin-bottom:16px;border-radius:10px;overflow:hidden;
@@ -343,14 +334,12 @@ textarea{resize:vertical;min-height:60px;}
   background:#fdf0ef;color:#c0392b;
   font-size:.75em;font-weight:800;
 }
-/* Barra mini en tabla doc */
 .doc-barra-bg{height:7px;background:#e8eef2;border-radius:10px;overflow:hidden;margin-top:4px;min-width:80px;}
 .doc-barra-fill{height:100%;border-radius:10px;}
 .doc-barra-fill.amarilla{background:linear-gradient(90deg,#e8a000,#f7c948);}
 .doc-barra-fill.naranja{background:linear-gradient(90deg,var(--naranja),var(--amarillo));}
 .doc-barra-fill.roja{background:linear-gradient(90deg,#c0392b,#e74c3c);}
 
-/* Aviso bloque 2 */
 .doc-aviso-bloque{
   border-radius:10px;padding:12px 15px;margin-bottom:16px;
   font-size:.8em;line-height:1.6;color:#555;
@@ -360,16 +349,6 @@ textarea{resize:vertical;min-height:60px;}
 .doc-aviso-bloque.roja{background:linear-gradient(135deg,#fdf5f4,#fdf0ef);border:1.5px solid #e08070;border-left:5px solid #c0392b;}
 .doc-aviso-bloque strong{color:var(--rojo);}
 
-/* Aviso plataforma */
-.doc-aviso-plat{
-  background:#f0f8ff;border:1.5px solid #b8d4e8;
-  border-left:5px solid var(--azul);
-  border-radius:10px;padding:11px 14px;
-  margin-bottom:16px;font-size:.78em;
-  line-height:1.6;color:var(--azul);
-}
-
-/* Acciones */
 .doc-acciones{margin-bottom:16px;}
 .doc-accion-item{
   display:flex;align-items:flex-start;gap:10px;
@@ -384,7 +363,6 @@ textarea{resize:vertical;min-height:60px;}
   font-size:.68em;font-weight:800;flex-shrink:0;margin-top:1px;
 }
 
-/* Observación */
 .doc-obs{
   background:#fffaf6;border:1.5px solid #f0d8c8;
   border-left:5px solid var(--naranja);
@@ -394,7 +372,6 @@ textarea{resize:vertical;min-height:60px;}
   white-space:pre-wrap;word-break:break-word;
 }
 
-/* Firma */
 .doc-firma-area{
   margin-top:4px;margin-bottom:16px;
   display:grid;grid-template-columns:1fr 1fr;gap:20px;
@@ -404,7 +381,6 @@ textarea{resize:vertical;min-height:60px;}
 .firma-cargo{font-size:.72em;color:#666;margin-top:2px;}
 .firma-colegio{font-size:.68em;color:#888;margin-top:1px;font-style:italic;}
 
-/* Pie */
 .doc-foot{
   background:var(--azul);padding:10px 40px;
   display:flex;justify-content:space-between;align-items:center;
@@ -433,31 +409,26 @@ textarea{resize:vertical;min-height:60px;}
 
 <!-- TIPO DE ALERTA -->
 <div class="tipo-grid" id="tipoGrid">
-
   <div class="tipo-card" id="tc_amarilla" onclick="selTipo('amarilla')">
     <div class="tc-icon">🟡</div>
     <div class="tc-title">Alerta Amarilla</div>
     <div class="tc-desc">El estudiante ya inició el curso pero su punteo está por debajo de la meta del bloque. Requiere atención pronta para recuperar el ritmo.</div>
   </div>
-
   <div class="tipo-card" id="tc_naranja" onclick="selTipo('naranja')">
     <div class="tc-icon">🟠</div>
     <div class="tc-title">Alerta Naranja</div>
     <div class="tc-desc">El estudiante tiene 0 puntos en uno o más cursos. Corre riesgo de acumular lecciones pendientes y saturarse de trabajo.</div>
   </div>
-
   <div class="tipo-card" id="tc_roja" onclick="selTipo('roja')">
     <div class="tc-icon">🔴</div>
     <div class="tc-title">Alerta Roja</div>
     <div class="tc-desc">El estudiante está en riesgo de no completar el ciclo escolar. La acumulación es crítica y requiere acción inmediata.</div>
   </div>
-
 </div>
 
 <!-- FORMULARIO -->
 <div class="form-card" id="formCard">
 
-  <!-- BLOQUE -->
   <div class="sec">Bloque actual</div>
   <div style="margin-bottom:14px;">
     <label>Selecciona el bloque en que se emite la alerta</label>
@@ -470,7 +441,6 @@ textarea{resize:vertical;min-height:60px;}
     </div>
   </div>
 
-  <!-- ESTUDIANTE -->
   <div class="sec">Datos del Estudiante</div>
   <div class="row r2">
     <div>
@@ -491,7 +461,6 @@ textarea{resize:vertical;min-height:60px;}
     </div>
   </div>
 
-  <!-- CURSOS CON ALERTA -->
   <div class="sec">Cursos con Alerta</div>
   <p style="font-size:.77em;color:#666;margin-bottom:10px;">Agrega todos los cursos que presentan problemas. Puedes agregar hasta 8 cursos.</p>
 
@@ -510,7 +479,6 @@ textarea{resize:vertical;min-height:60px;}
   </table>
   <button class="btn-agregar" onclick="agregarCurso()" id="btnAgregar">+ Agregar otro curso</button>
 
-  <!-- FECHA -->
   <div class="sec">Fecha de la Alerta</div>
   <div class="row" style="max-width:260px;">
     <div>
@@ -519,7 +487,6 @@ textarea{resize:vertical;min-height:60px;}
     </div>
   </div>
 
-  <!-- ACCIONES -->
   <div class="sec">Acciones y Sugerencias para los Padres</div>
   <p style="font-size:.77em;color:#666;margin-bottom:8px;">Selecciona las acciones que aplican para esta situación:</p>
   <div class="acciones-grid" id="accionesGrid"></div>
@@ -544,9 +511,6 @@ textarea{resize:vertical;min-height:60px;}
 <div id="captureArea"></div>
 
 <script>
-/* ═══════════════════════════
-   DATOS PRIMARIA
-═══════════════════════════ */
 const CURSOS_12 = [
   'Idioma Inglés','Idioma Maya','Expresión Artística',
   'Educación Física','Formación Ciudadana','Productividad y Desarrollo'
@@ -572,7 +536,6 @@ const ACCIONES = [
 let tipoSel='', bloqueSel=null, bloquePts=0, bloqueFecha='';
 let filasCount=0;
 
-/* ── Config visual por tipo de alerta ── */
 const TIPO_CFG = {
   amarilla:{
     label:'🟡 ALERTA AMARILLA',
@@ -618,10 +581,8 @@ const TIPO_CFG = {
   }
 };
 
-/* Init */
 document.getElementById('f_fecha').value = new Date().toISOString().split('T')[0];
 
-// Renderizar acciones
 (function(){
   const grid=document.getElementById('accionesGrid');
   ACCIONES.forEach((txt,i)=>{
@@ -636,26 +597,21 @@ document.getElementById('f_fecha').value = new Date().toISOString().split('T')[0
   agregarCurso();
 })();
 
-/* ── Tipo ── */
 function selTipo(t){
   tipoSel=t;
   ['amarilla','naranja','roja'].forEach(x=>{
     const card=document.getElementById('tc_'+x);
     card.className='tipo-card'+(x===t?' sel-'+t:'');
   });
-  // Actualizar borde y botón del formulario
   const fc=document.getElementById('formCard');
   fc.className='form-card tipo-'+t;
   const btn=document.getElementById('btnGen');
   btn.className='btn-gen tipo-'+t;
-
   const cfg=TIPO_CFG[t];
-  // Cambiar texto del botón según tipo
   const emojis={amarilla:'🟡',naranja:'🟠',roja:'🔴'};
   btn.textContent=`${emojis[t]} Generar ${cfg.label.replace(/^[^ ]+ /,'')}`;
 }
 
-/* ── Bloque ── */
 function selBloque(el){
   document.querySelectorAll('.blq-card').forEach(e=>e.classList.remove('sel'));
   el.classList.add('sel');
@@ -665,7 +621,6 @@ function selBloque(el){
   document.querySelectorAll('.pts-input').forEach(inp=>actualizarBarra(inp));
 }
 
-/* ── Tabla de cursos ── */
 function agregarCurso(){
   const tbody=document.getElementById('cursosBody');
   if(tbody.children.length>=8){
@@ -746,7 +701,6 @@ function actualizarBarra(inp){
   if(barEl) barEl.style.width=pct+'%';
 }
 
-/* ── Helpers ── */
 function fmt(d){
   if(!d)return'';
   const[y,m,dia]=d.split('-');
@@ -770,9 +724,6 @@ function getCursosData(){
   return filas;
 }
 
-/* ═══════════════════════════
-   GENERAR ALERTA
-═══════════════════════════ */
 function generarAlerta(){
   const nombre=document.getElementById('f_nombre').value.trim();
   const grado =document.getElementById('f_grado').value||'—';
@@ -792,7 +743,6 @@ function generarAlerta(){
 
   const cfg=TIPO_CFG[tipoSel];
 
-  // Filas de tabla en el documento
   const filasTablaHTML=cursos.map(c=>{
     const pct=c.noIngreso?0:Math.min(Math.round((c.pts/bloquePts)*100),100);
     const punteoCol = c.noIngreso
@@ -810,17 +760,6 @@ function generarAlerta(){
         <td class="td-estado"><span class="${cfg.tagClass}">${cfg.bannerIcono} ${cfg.label.replace('🟡 ','').replace('🟠 ','').replace('🔴 ','')}</span></td>
       </tr>`;
   }).join('');
-
-  // Nota de plataforma
-  const tiene24=cursos.some(c=>c.tipo==='24');
-  const tiene12=cursos.some(c=>c.tipo==='12');
-  let notaPlat='';
-  if(tiene24||tiene12){
-    notaPlat=`<div class="doc-aviso-plat"><strong>ℹ️ Nota de la plataforma:</strong>`;
-    if(tiene24) notaPlat+=` Para cursos de <strong>24 lecciones</strong>, completar la lección 17 requiere haber aprobado la <strong>Evaluación de Módulo 1 (lecciones 1–16)</strong>.`;
-    if(tiene12) notaPlat+=` Para cursos de <strong>12 lecciones</strong>, la lección 9 requiere haber completado la <strong>Evaluación de Módulo 1 (lecciones 1–8)</strong>.`;
-    notaPlat+=` Los módulos se cierran en semanas de exámenes de <strong>marzo y junio</strong>.</div>`;
-  }
 
   const accionesHTML=accionesSel.length
     ?`<div class="doc-sec">Acciones y Recomendaciones para la Familia</div>
@@ -887,7 +826,6 @@ function generarAlerta(){
       ${cfg.getAvisoBloque(bloqueSel,bloqueFecha)}
     </div>
 
-    ${notaPlat}
     ${accionesHTML}
     ${obsHTML}
 
@@ -918,9 +856,6 @@ function generarAlerta(){
   document.getElementById('contenedor-preview').scrollIntoView({behavior:'smooth'});
 }
 
-/* ═══════════════════════════
-   DESCARGAR PNG
-═══════════════════════════ */
 async function descargarPNG(){
   const btn=document.getElementById('btnDL');
   btn.textContent='⏳ Generando PNG...';btn.disabled=true;
@@ -946,9 +881,6 @@ async function descargarPNG(){
   }
 }
 
-/* ═══════════════════════════
-   NUEVA ALERTA
-═══════════════════════════ */
 function nuevaAlerta(){
   document.getElementById('formCard').style.display='block';
   document.getElementById('tipoGrid').style.display='grid';
