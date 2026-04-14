@@ -405,7 +405,7 @@ textarea{resize:vertical;min-height:60px;}
     <div class="tc-icon">🔴</div>
     <div class="tc-title">Alerta Roja</div>
     <div class="tc-range" style="color:#c0392b;">0 – 19 pts</div>
-    <div class="tc-desc">Rezago crítico. Riesgo alto de no completar el ciclo. Requiere acción inmediata.</div>
+    <div class="tc-desc">Rezago crítico. El trabajo se acumula y hay riesgo de saturarse. Requiere acción inmediata.</div>
   </div>
   <div class="tipo-card" id="tc_naranja" onclick="selTipo('naranja')">
     <div class="tc-icon">🟠</div>
@@ -587,14 +587,14 @@ const TIPO_CFG = {
     bannerIcono:'🔴',
     tagClass:'tag-roja',
     barClass:'roja',
-    getTitulo:(v)=> v ? 'Alerta Roja – Rezago Crítico en Bloque Vencido' : 'Alerta Roja – Riesgo de No Completar el Ciclo Escolar',
+    getTitulo:(v)=> v ? 'Alerta Roja – Rezago Crítico en Bloque Vencido' : 'Alerta Roja – Requiere Acción Inmediata',
     getBannerTitulo:(n,v)=>`Rezago crítico en ${n>1?n+' cursos':'1 curso'}`,
     getBannerDesc:(pts,blq,fecha,v)=> v
-      ? `El estudiante presenta una <strong>acumulación crítica</strong> de lecciones sin completar. El <strong>Bloque ${blq} ya venció el ${fecha}</strong> y este rezago se suma al bloque en curso, poniendo en riesgo la aprobación del ciclo.`
-      : `El estudiante presenta rezago crítico (0–19 pts sobre ${pts} posibles). Sin acción inmediata y sostenida, <strong>no será posible completar los requisitos del año</strong>. El Bloque ${blq} cierra el <strong>${fecha}</strong>.`,
+      ? `El estudiante presenta una <strong>acumulación crítica</strong> de lecciones sin completar. El <strong>Bloque ${blq} ya venció el ${fecha}</strong> y el trabajo pendiente se suma al bloque en curso. Es importante actuar cuanto antes para evitar mayor saturación.`
+      : `El estudiante presenta rezago crítico (0–19 pts sobre ${pts} posibles). Cada día sin ingresar suma más lecciones pendientes y el trabajo se acumula. <strong>Se requiere acción inmediata</strong> para retomar el ritmo antes del cierre del Bloque ${blq} el <strong>${fecha}</strong>.`,
     getAvisoBloque:(blq,fecha,v)=> v
-      ? `🚨 <strong>Situación crítica:</strong> El <strong>Bloque ${blq} ya venció el ${fecha}</strong> con rezago acumulado que compromete la aprobación. Se requiere un plan de recuperación urgente con la Coordinación Académica.`
-      : `🚨 <strong>Situación crítica:</strong> El rezago ha llegado a un nivel que compromete la aprobación. Se requiere un plan de recuperación urgente. El Bloque ${blq} finaliza el <strong>${fecha}</strong>.`,
+      ? `🚨 <strong>Acción inmediata requerida:</strong> El <strong>Bloque ${blq} ya venció el ${fecha}</strong> y el trabajo pendiente se acumula al bloque en curso. Cuanto antes se retome la actividad, menor será la carga de lecciones por completar. Comuníquese con la Coordinación Académica para coordinar un plan de apoyo.`
+      : `🚨 <strong>Acción inmediata requerida:</strong> Cada día sin ingresar incrementa la cantidad de lecciones pendientes y el riesgo de saturarse al cierre. El Bloque ${blq} finaliza el <strong>${fecha}</strong>. Retomar el ritmo hoy reduce significativamente la carga acumulada.`,
   },
   naranja:{
     label:'🟠 ALERTA NARANJA',
